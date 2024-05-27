@@ -11,6 +11,8 @@ let yRaquete = 150;
 let comprimentoDaRaquete = 10;
 let alturaDaRaquete = 90;
 
+let colidiu = false;
+
 function setup() {
     createCanvas(600, 400);
 }
@@ -49,7 +51,8 @@ function verificarColisaoDaBolinha() {
 function mostrarRaquete() {
     rect(xRaquete, yRaquete, comprimentoDaRaquete, alturaDaRaquete);
     movimentarMinhaRaquete();
-    verificarColisaoDaRaquete();
+    // verificarColisaoDaRaquete();
+    colisaoMinhaRaqueteBiblioteca();
 }
 
 function movimentarMinhaRaquete() {
@@ -65,6 +68,13 @@ function verificarColisaoDaRaquete() {
     if (xBolinha - raio < xRaquete + comprimentoDaRaquete
         && yBolinha - raio < yRaquete + alturaDaRaquete
         && yBolinha + raio > yRaquete) {
+        velocidadeXBolinha *= -1;
+    }
+}
+
+function colisaoMinhaRaqueteBiblioteca() {
+    colidiu = collideRectCircle(xRaquete, yRaquete, comprimentoDaRaquete, alturaDaRaquete, xBolinha, yBolinha, raio);
+    if (colidiu) {
         velocidadeXBolinha *= -1;
     }
 }
