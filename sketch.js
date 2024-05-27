@@ -1,5 +1,5 @@
-var xBolinha = 50;
-var yBolinha = 50;
+var xBolinha = 100;
+var yBolinha = 100;
 var diametro = 13;
 let raio = diametro / 2;
 
